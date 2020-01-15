@@ -12,8 +12,8 @@ export class NodesService {
     private readonly _nodeRepository: Repository<Node>
   ) {}
 
-  async findByFeederId(feederId: number): Promise<NodesRO> {
-    const [nodes, nodeCount] = await this._nodeRepository.findAndCount({
+  async findByFeederId(feederId: number): Promise<[Node[], number]> {
+    return await this._nodeRepository.findAndCount({
       relations: ["feeder"],
       where: {
         feeder: {
@@ -21,10 +21,5 @@ export class NodesService {
         }
       }
     });
-    const serializedNodes = nodes.map(NodesSerializer.serialize);
-    return {
-      nodes: serializedNodes,
-      nodeCount
-    };
   }
 }

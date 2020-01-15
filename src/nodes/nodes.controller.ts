@@ -1,6 +1,7 @@
 import { Controller, Get, Query } from "@nestjs/common";
 import { NodesService } from "./nodes.service";
 import { NodesRO } from "./node.interface";
+import { NodesSerializer } from "./nodes.serializer";
 
 @Controller("nodes")
 export class NodesController {
@@ -8,6 +9,13 @@ export class NodesController {
 
   @Get()
   async findByFeederId(@Query("feeder_id") feederId: number): Promise<NodesRO> {
-    return await this._nodesService.findByFeederId(feederId);
+    const [nodes, nodeCount] = await this._nodesService.findByFeederId(
+      feederId
+    );
+
+    return {
+      nodes: nodes.map(NodesSerializer.serialize),
+      nodeCount
+    };
   }
 }
