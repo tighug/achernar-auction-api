@@ -8,8 +8,9 @@ import { UsersModule } from "./users/users.module";
 import { BidsModule } from "./bids/bids.module";
 import { MarketsModule } from "./markets/markets.module";
 import { MarketResultsModule } from "./market-results/market-results.module";
-import { FlowsModule } from "./flows/flows.module";
 import { NodalPricesModule } from "./nodal-prices/nodal-prices.module";
+import { FlowTransitionsModule } from "./flow-transitions/flow-transitions.module";
+import { AuctionsModule } from './auctions/auctions.module';
 
 @Module({
   imports: [
@@ -21,8 +22,9 @@ import { NodalPricesModule } from "./nodal-prices/nodal-prices.module";
     BidsModule,
     MarketsModule,
     MarketResultsModule,
-    FlowsModule,
-    NodalPricesModule
+    NodalPricesModule,
+    FlowTransitionsModule,
+    AuctionsModule
   ]
 })
 export class AppModule {
