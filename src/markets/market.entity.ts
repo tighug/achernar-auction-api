@@ -1,9 +1,9 @@
-import { Entity, PrimaryColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { Feeder } from "../feeders/feeder.entity";
 
 @Entity()
 export class Market {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @ManyToOne(() => Feeder)

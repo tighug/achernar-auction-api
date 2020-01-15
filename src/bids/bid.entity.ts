@@ -1,4 +1,4 @@
-import { Entity, PrimaryColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
 import { Market } from "../markets/market.entity";
 import { User } from "src/users/user.entity";
 
@@ -9,7 +9,7 @@ export enum BidType {
 
 @Entity()
 export class Bid {
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   id: number;
 
   @ManyToOne(() => Market)
