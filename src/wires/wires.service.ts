@@ -2,8 +2,6 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Wire } from "./wire.entity";
 import { Repository } from "typeorm";
-import { WiresSerializer } from "./wires.serializer";
-import { WiresRO } from "./wire.interface";
 
 @Injectable()
 export class WiresService {
@@ -12,8 +10,8 @@ export class WiresService {
     private readonly _wireRepository: Repository<Wire>
   ) {}
 
-  async findByFeederId(feederId: number): Promise<WiresRO> {
-    const [wires, wireCount] = await this._wireRepository.findAndCount({
+  async findByFeederId(feederId: number): Promise<[Wire[], number]> {
+    return await this._wireRepository.findAndCount({
       relations: [
         "feeder",
         "node",
@@ -27,11 +25,5 @@ export class WiresService {
         }
       }
     });
-    const serializedWires = wires.map(WiresSerializer.serialize);
-
-    return {
-      wires: serializedWires,
-      wireCount
-    };
   }
 }
