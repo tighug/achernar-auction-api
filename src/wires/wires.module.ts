@@ -7,6 +7,7 @@ import { WiresController } from "./wires.controller";
 @Module({
   imports: [TypeOrmModule.forFeature([Wire])],
   providers: [WiresService],
-  controllers: [WiresController]
+  controllers: [WiresController],
+  exports: [WiresService]
 })
 export class WiresModule {}
