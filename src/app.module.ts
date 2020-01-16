@@ -10,7 +10,7 @@ import { MarketsModule } from "./markets/markets.module";
 import { MarketResultsModule } from "./market-results/market-results.module";
 import { NodalPricesModule } from "./nodal-prices/nodal-prices.module";
 import { FlowTransitionsModule } from "./flow-transitions/flow-transitions.module";
-import { AuctionsModule } from './auctions/auctions.module';
+import { AuctionsModule } from "./auctions/auctions.module";
 
 @Module({
   imports: [
