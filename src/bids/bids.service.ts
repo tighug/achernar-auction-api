@@ -12,7 +12,7 @@ export class BidsService {
 
   async findByMarketId(marketId: number): Promise<[Bid[], number]> {
     return await this._bidRepository.findAndCount({
-      relations: ["market", "user"],
+      relations: ["market", "user", "user.node"],
       where: {
         market: {
           id: marketId
