@@ -7,6 +7,7 @@ import { NodalPricesController } from "./nodal-prices.controller";
 @Module({
   imports: [TypeOrmModule.forFeature([NodalPrice])],
   providers: [NodalPricesService],
-  controllers: [NodalPricesController]
+  controllers: [NodalPricesController],
+  exports: [NodalPricesService]
 })
 export class NodalPricesModule {}

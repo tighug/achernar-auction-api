@@ -7,6 +7,7 @@ import { BidsController } from './bids.controller';
 @Module({
   imports: [TypeOrmModule.forFeature([Bid])],
   providers: [BidsService],
-  controllers: [BidsController]
+  controllers: [BidsController],
+  exports: [BidsService]
 })
 export class BidsModule {}

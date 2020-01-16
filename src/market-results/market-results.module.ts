@@ -7,6 +7,7 @@ import { MarketResultsController } from './market-results.controller';
 @Module({
   imports: [TypeOrmModule.forFeature([MarketResult])],
   providers: [MarketResultsService],
-  controllers: [MarketResultsController]
+  controllers: [MarketResultsController],
+  exports: [MarketResultsService]
 })
 export class MarketResultsModule {}
