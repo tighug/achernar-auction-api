@@ -11,9 +11,6 @@ export class FlowTransition {
   @ManyToOne(() => Market)
   market: Market;
 
-  @ManyToOne(() => Wire)
-  wire: Wire;
-
   @ManyToOne(() => Flow)
   initFlow: Flow;
 

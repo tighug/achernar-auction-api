@@ -12,7 +12,7 @@ export class FlowTransitionsService {
 
   async findByMarketId(marketId: number): Promise<[FlowTransition[], number]> {
     return await this._flowTransitionsRepository.findAndCount({
-      relations: ["market", "wire"],
+      relations: ["market", "flow", "flow.wire"],
       where: {
         market: {
           id: marketId

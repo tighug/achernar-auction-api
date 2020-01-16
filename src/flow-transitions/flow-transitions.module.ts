@@ -7,6 +7,7 @@ import { FlowTransitionsController } from './flow-transitions.controller';
 @Module({
   imports: [TypeOrmModule.forFeature([FlowTransition])],
   providers: [FlowTransitionsService],
-  controllers: [FlowTransitionsController]
+  controllers: [FlowTransitionsController],
+  exports: [FlowTransitionsService]
 })
 export class FlowTransitionsModule {}

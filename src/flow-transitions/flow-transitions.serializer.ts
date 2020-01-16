@@ -9,7 +9,6 @@ export class FlowTransitionsSerializer {
     return {
       id: flowTransition.id,
       market: MarketsSerializer.serialize(flowTransition.market),
-      wire: WiresSerializer.serialize(flowTransition.wire),
       initFlow: FlowsSerializer.serialize(flowTransition.initFlow),
       befFlow: FlowsSerializer.serialize(flowTransition.befFlow),
       aftFlow: FlowsSerializer.serialize(flowTransition.aftFlow)

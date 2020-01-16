@@ -3,6 +3,7 @@ import { WireData } from "src/wires/wire.interface";
 
 export interface FlowData {
   id: number;
+  wire: WireData;
   nodeP: number;
   nodeV: number;
   lineI: number;
@@ -12,7 +13,6 @@ export interface FlowData {
 export interface FlowTransitionData {
   id: number;
   market: MarketData;
-  wire: WireData;
   initFlow: FlowData;
   befFlow: FlowData;
   aftFlow: FlowData;
