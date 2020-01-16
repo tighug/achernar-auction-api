@@ -5,12 +5,11 @@ import { AuctionsProcessor } from "./auctions.processor";
 import { AuctionsService } from "./auctions.service";
 import { NodesModule } from "src/nodes/nodes.module";
 import { WiresModule } from "src/wires/wires.module";
-import { UsersModule } from "src/users/users.module";
-import { BidsModule } from "src/bids/bids.module";
 import { MarketsModule } from "src/markets/markets.module";
-import { MarketResultsModule } from "src/market-results/market-results.module";
-import { NodalPricesModule } from "src/nodal-prices/nodal-prices.module";
+import { BidsModule } from "src/bids/bids.module";
 import { FlowTransitionsModule } from "src/flow-transitions/flow-transitions.module";
+import { NodalPricesModule } from "src/nodal-prices/nodal-prices.module";
+import { MarketResultsModule } from "src/market-results/market-results.module";
 
 @Module({
   imports: [
@@ -18,7 +17,12 @@ import { FlowTransitionsModule } from "src/flow-transitions/flow-transitions.mod
       name: "auction"
     }),
     NodesModule,
-    WiresModule
+    WiresModule,
+    MarketsModule,
+    BidsModule,
+    FlowTransitionsModule,
+    NodalPricesModule,
+    MarketResultsModule
   ],
   controllers: [AuctionsController],
   providers: [AuctionsProcessor, AuctionsService]
