@@ -10,6 +10,10 @@ export class MarketsService {
     private readonly _marketRepository: Repository<Market>
   ) {}
 
+  async findById(id: number): Promise<Market> {
+    return await this._marketRepository.findOne(id, { relations: ["feeder"] });
+  }
+
   async findByFeederId(feederId: number): Promise<[Market[], number]> {
     return await this._marketRepository.findAndCount({
       relations: ["feeder"],
