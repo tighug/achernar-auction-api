@@ -27,7 +27,4 @@ export class NodalPrice {
 
   @Column("float")
   weightPrice: number;
-
-  @Column("float")
-  agreedPrice: number;
 }

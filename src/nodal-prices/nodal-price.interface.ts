@@ -10,7 +10,6 @@ export interface NodalPriceData {
   muVp: number;
   muVn: number;
   weightPrice: number;
-  agreedPrice: number;
 }
 
 export interface NodalPricesRO {
