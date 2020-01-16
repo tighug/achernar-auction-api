@@ -1,6 +1,7 @@
 import { Controller, Get, Query } from "@nestjs/common";
 import { NodalPricesService } from "./nodal-prices.service";
 import { NodalPricesRO } from "./nodal-price.interface";
+import { NodalPricesSerializer } from "./nodal-prices.serializer";
 
 @Controller("nodal-prices")
 export class NodalPricesController {
@@ -10,6 +11,14 @@ export class NodalPricesController {
   async findByMarketId(
     @Query("market_id") marketId: number
   ): Promise<NodalPricesRO> {
-    return await this._nodalPricesService.findByMarketId(marketId);
+    const [
+      nodalPrices,
+      nodalPriceCount
+    ] = await this._nodalPricesService.findByMarketId(marketId);
+
+    return {
+      nodalPrices: nodalPrices.map(NodalPricesSerializer.serialize),
+      nodalPriceCount
+    };
   }
 }

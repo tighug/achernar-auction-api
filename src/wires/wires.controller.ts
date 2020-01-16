@@ -9,11 +9,13 @@ export class WiresController {
 
   @Get()
   async findByFeederId(@Query("feeder_id") feederId: number): Promise<WiresRO> {
-    const [wires, wireCount] = await this._wiresService.findByFeederId(feederId);
+    const [wires, wireCount] = await this._wiresService.findByFeederId(
+      feederId
+    );
 
     return {
       wires: wires.map(WiresSerializer.serialize),
       wireCount
-    }
+    };
   }
 }

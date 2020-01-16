@@ -2,8 +2,6 @@ import { Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Bid } from "./bid.entity";
 import { Repository } from "typeorm";
-import { BidsRO } from "./bid.interface";
-import { BidsSerializer } from "./bids.serializer";
 
 @Injectable()
 export class BidsService {
@@ -12,8 +10,8 @@ export class BidsService {
     private readonly _bidRepository: Repository<Bid>
   ) {}
 
-  async findByMarketId(marketId: number): Promise<BidsRO> {
-    const [bids, bidCount] = await this._bidRepository.findAndCount({
+  async findByMarketId(marketId: number): Promise<[Bid[], number]> {
+    return await this._bidRepository.findAndCount({
       relations: ["market", "user"],
       where: {
         market: {
@@ -21,11 +19,5 @@ export class BidsService {
         }
       }
     });
-    const serializedBids = bids.map(BidsSerializer.serialize);
-
-    return {
-      bids: serializedBids,
-      bidCount
-    };
   }
 }

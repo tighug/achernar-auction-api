@@ -11,7 +11,7 @@ export class AuctionsController {
     @InjectQueue("auction")
     private readonly _auctionQueue: Queue,
     private readonly _nodesService: NodesService,
-    private readonly _wiresService: WiresService,
+    private readonly _wiresService: WiresService
   ) {}
 
   @Post("start")
@@ -22,8 +22,11 @@ export class AuctionsController {
   }
 
   async startAuction(feederId: number): Promise<void> {
-    const [nodes, nodeCount] = await this._nodesService.findByFeederId(feederId);
-    const [wires, wireCount] = await this._wiresService.findByFeederId(feederId);
-    
+    const [nodes, nodeCount] = await this._nodesService.findByFeederId(
+      feederId
+    );
+    const [wires, wireCount] = await this._wiresService.findByFeederId(
+      feederId
+    );
   }
 }

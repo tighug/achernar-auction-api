@@ -1,6 +1,7 @@
 import { Controller, Get, Query } from "@nestjs/common";
 import { MarketResultsService } from "./market-results.service";
 import { MarketResultsRO } from "./market-result.interface";
+import { MarketResultsSerializer } from "./market-results.serializer";
 
 @Controller("market-results")
 export class MarketResultsController {
@@ -10,6 +11,14 @@ export class MarketResultsController {
   async findByMarketId(
     @Query("market_id") marketId: number
   ): Promise<MarketResultsRO> {
-    return await this._marketResultsService.findByMarketId(marketId);
+    const [
+      marketResults,
+      marketResultCount
+    ] = await this._marketResultsService.findByMarketId(marketId);
+
+    return {
+      marketResults: marketResults.map(MarketResultsSerializer.serialize),
+      marketResultCount
+    };
   }
 }

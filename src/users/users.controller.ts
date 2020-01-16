@@ -1,6 +1,7 @@
 import { Controller, Get, Query } from "@nestjs/common";
 import { UsersService } from "./users.service";
 import { UserRO } from "./user.interface";
+import { UsersSerializer } from "./users.serializer";
 
 @Controller("users")
 export class UsersController {
@@ -8,6 +9,10 @@ export class UsersController {
 
   @Get()
   async findByNodeId(@Query("node_id") nodeId: number): Promise<UserRO> {
-    return await this._usersService.findByNodeId(nodeId);
+    const user = await this._usersService.findByNodeId(nodeId);
+
+    return {
+      user: UsersSerializer.serialize(user)
+    };
   }
 }
