@@ -11,7 +11,7 @@ import { Job } from "bull";
 export class AuctionsProcessor {
   @Process()
   handleAuctions(job: Job) {
-    this.test(job)
+    this.test(job);
   }
 
   async test(job: Job): Promise<void> {

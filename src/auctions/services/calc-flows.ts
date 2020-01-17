@@ -77,7 +77,10 @@ export class CalcFlows {
     return prevNodeV - zOhm * flow.lineI;
   }
 
-  private static checkSameToBefNodeVs(befFlows: Flow[], flows: Flow[]): boolean {
+  private static checkSameToBefNodeVs(
+    befFlows: Flow[],
+    flows: Flow[]
+  ): boolean {
     const isAllSame = flows.every((f, i) => {
       const befNodeV = befFlows[i].nodeV;
       const nodeV = f.nodeV;

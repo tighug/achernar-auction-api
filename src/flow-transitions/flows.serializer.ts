@@ -11,6 +11,6 @@ export class FlowsSerializer {
       nodeV: flow.nodeV,
       lineI: flow.lineI,
       isFault: flow.isFault
-    }
+    };
   }
 }
