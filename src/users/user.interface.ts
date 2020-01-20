@@ -9,3 +9,8 @@ export interface UserData {
 export interface UserRO {
   user: UserData;
 }
+
+export interface UsersRO {
+  users: UserData[];
+  userCount: number;
+}
