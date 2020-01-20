@@ -7,6 +7,7 @@ import { FeedersController } from "./feeders.controller";
 @Module({
   imports: [TypeOrmModule.forFeature([Feeder])],
   controllers: [FeedersController],
-  providers: [FeedersService]
+  providers: [FeedersService],
+  exports: [FeedersService]
 })
 export class FeedersModule {}

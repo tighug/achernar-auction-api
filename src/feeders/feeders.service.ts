@@ -13,4 +13,8 @@ export class FeedersService {
   async findAll(): Promise<[Feeder[], number]> {
     return await this._feederRepository.findAndCount();
   }
+
+  async findOne(id: number): Promise<Feeder> {
+    return await this._feederRepository.findOne(id);
+  }
 }

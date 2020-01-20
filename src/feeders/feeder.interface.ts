@@ -10,3 +10,7 @@ export interface FeedersRO {
   feeders: FeederData[];
   feederCount: number;
 }
+
+export interface FeederRO {
+  feeder: FeederData;
+}
