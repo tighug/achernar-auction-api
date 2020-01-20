@@ -1,6 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from "typeorm";
+import { Entity, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 import { Market } from "../markets/market.entity";
-import { Wire } from "../wires/wire.entity";
 import { Flow } from "./flow.entity";
 
 @Entity()
@@ -14,9 +13,9 @@ export class FlowTransition {
   @ManyToOne(() => Flow)
   initFlow: Flow;
 
-  @ManyToOne(() => Flow)
+  @ManyToOne(() => Flow, { nullable: true })
   befFlow: Flow;
 
-  @ManyToOne(() => Flow)
+  @ManyToOne(() => Flow, { nullable: true })
   aftFlow: Flow;
 }

@@ -1,7 +1,6 @@
 import { FlowTransition } from "./flow-transition.entity";
 import { FlowTransitionData } from "./flow-transition.interface";
 import { MarketsSerializer } from "src/markets/markets.serializer";
-import { WiresSerializer } from "src/wires/wires.serializer";
 import { FlowsSerializer } from "./flows.serializer";
 
 export class FlowTransitionsSerializer {

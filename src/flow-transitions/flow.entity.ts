@@ -18,10 +18,10 @@ export class Flow {
   @Column("float")
   lineI: number;
 
-  @Column("boolean")
+  @Column("boolean", { default: false })
   isFault: boolean;
 
-  get nodeI() {
+  get nodeI(): number {
     return this.nodeP / this.nodeV;
   }
 }

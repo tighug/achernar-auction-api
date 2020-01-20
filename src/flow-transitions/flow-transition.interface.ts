@@ -22,3 +22,7 @@ export interface FlowTransitionsRO {
   flowTransitions: FlowTransitionData[];
   flowTransitionCount: number;
 }
+
+export interface FlowTransitionRO {
+  flowTransition: FlowTransitionData;
+}
