@@ -7,9 +7,6 @@ export class Wire {
   @PrimaryColumn()
   id: number;
 
-  @ManyToOne(() => Feeder)
-  feeder: Feeder;
-
   @ManyToOne(() => Node)
   prevNode: Node;
 
