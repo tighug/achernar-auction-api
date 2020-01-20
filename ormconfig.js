@@ -8,6 +8,7 @@ module.exports = {
   password: "root",
   database: "spm_db",
   entities: ["dist/**/*.entity.js"],
-  synchronize: false,
+  synchronize: true,
+  logging: false,
   namingStrategy: new TypeOrmNamingStrategy()
 };
