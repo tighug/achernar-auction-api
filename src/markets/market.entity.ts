@@ -12,6 +12,6 @@ export class Market {
   @Column("text")
   name: string;
 
-  @Column("int")
+  @Column("int", { nullable: true })
   baseAgreedPrice: number;
 }

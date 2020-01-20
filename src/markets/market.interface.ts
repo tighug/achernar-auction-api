@@ -11,3 +11,7 @@ export interface MarketsRO {
   markets: MarketData[];
   marketCount: number;
 }
+
+export interface MarketRO {
+  market: MarketData;
+}
