@@ -13,8 +13,7 @@ export class NodalPricesSerializer {
       muIn: nodalPrice.muIn,
       muVp: nodalPrice.muVp,
       muVn: nodalPrice.muVn,
-      weightPrice: nodalPrice.weightPrice,
-      agreedPrice: nodalPrice.agreedPrice
+      weightPrice: nodalPrice.weightPrice
     };
   }
 }
