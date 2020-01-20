@@ -12,3 +12,7 @@ export interface NodesRO {
   nodes: NodeData[];
   nodeCount: number;
 }
+
+export interface NodeRO {
+  node: NodeData;
+}
