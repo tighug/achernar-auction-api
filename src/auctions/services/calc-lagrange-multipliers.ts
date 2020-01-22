@@ -11,7 +11,11 @@ const TOL_V = Number(process.env.TOL_V);
 const TOL_I = Number(process.env.TOL_I);
 
 export class CalcLagrangeMultipliers {
-  static execute(nodalPrices: NodalPrice[], initFlows: Flow[], flows: Flow[]) {
+  static execute(
+    nodalPrices: NodalPrice[],
+    initFlows: Flow[],
+    flows: Flow[]
+  ): void {
     const lineIRanges = initFlows.map(initFlow => {
       const range = initFlow.lineI * MAX_CURRENT_MULTIPLIER;
       return range < MIN_MAX_CURRENT ? MIN_MAX_CURRENT : range;
@@ -41,28 +45,28 @@ export class CalcLagrangeMultipliers {
     });
   }
 
-  private static calcMuIp(excess: number, muIp: number) {
+  private static calcMuIp(excess: number, muIp: number): number {
     if (excess <= 0) return 0;
     if (excess <= TOL_I) return muIp;
 
     return muIp + COEFF_I * excess;
   }
 
-  private static calcMuIn(excess: number, muIn: number) {
+  private static calcMuIn(excess: number, muIn: number): number {
     if (excess <= 0) return 0;
     if (excess <= TOL_I) return muIn;
 
     return muIn + COEFF_I * excess;
   }
 
-  private static calcMuVp(excess: number, muVp: number) {
+  private static calcMuVp(excess: number, muVp: number): number {
     if (excess <= 0) return 0;
     if (excess <= TOL_V) return muVp;
 
     return muVp + COEFF_V * excess;
   }
 
-  private static calcMuVn(excess: number, muVn: number) {
+  private static calcMuVn(excess: number, muVn: number): number {
     if (excess <= 0) return 0;
     if (excess <= TOL_V) return muVn;
 

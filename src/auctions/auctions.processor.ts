@@ -2,15 +2,14 @@ import {
   Processor,
   Process,
   OnQueueActive,
-  OnQueueProgress,
-  OnQueueCompleted
+  OnQueueProgress
 } from "@nestjs/bull";
 import { Job } from "bull";
 
 @Processor("auction")
 export class AuctionsProcessor {
   @Process()
-  handleAuctions(job: Job) {
+  handleAuctions(job: Job): void {
     this.test(job);
   }
 
