@@ -11,6 +11,7 @@ import { MarketResultsModule } from "./market-results/market-results.module";
 import { NodalPricesModule } from "./nodal-prices/nodal-prices.module";
 import { FlowTransitionsModule } from "./flow-transitions/flow-transitions.module";
 import { AuctionsModule } from "./auctions/auctions.module";
+import { AppController } from "./app.controller";
 
 @Module({
   imports: [
@@ -25,7 +26,8 @@ import { AuctionsModule } from "./auctions/auctions.module";
     NodalPricesModule,
     FlowTransitionsModule,
     AuctionsModule
-  ]
+  ],
+  controllers: [AppController]
 })
 export class AppModule {
   constructor(private readonly connection: Connection) {}

@@ -14,7 +14,11 @@ import { MarketResultsModule } from "src/market-results/market-results.module";
 @Module({
   imports: [
     BullModule.registerQueue({
-      name: "auction"
+      name: "auction",
+      redis: {
+        host: process.env.AUCTION_REDIS_HOST || "localhost",
+        port: Number(process.env.AUCTION_REDIS_PORT) || 6379
+      }
     }),
     NodesModule,
     WiresModule,
