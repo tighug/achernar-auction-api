@@ -1,9 +1,9 @@
 {
-  "name": "auction-management-api",
+  "name": "achernar-auction-api",
   "version": "0.0.1",
-  "description": "",
-  "author": "",
-  "license": "MIT",
+  "description": "余剰電力取引システムAchernarの約定処理API",
+  "author": "tighug",
+  "license": "",
   "scripts": {
     "prebuild": "rimraf dist",
     "build": "nest build",
