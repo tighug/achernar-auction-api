@@ -1,0 +1,8 @@
+{
+  "name": "achernar-auction-api",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "https://github.com/tighug/achernar-auction-api.git",
+  "author": "tighug <kapuriko123@gmail.com>",
+  "license": "MIT"
+}
