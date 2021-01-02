@@ -4,5 +4,9 @@
   "main": "index.js",
   "repository": "https://github.com/tighug/achernar-auction-api.git",
   "author": "tighug <kapuriko123@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
 }
