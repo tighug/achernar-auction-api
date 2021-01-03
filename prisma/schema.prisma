@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model NodalPrice {
+  id          Int    @id @default(autoincrement())
+  market      Market @relation(fields: [marketName], references: [name])
+  marketName  String
+  muIp        Float
+  muIn        Float
+  muVp        Float
+  muVn        Float
+  weightPrice Float
+}
+
+model Market {
+  name       String       @id
+  feeder     Feeder       @relation(fields: [feederId], references: [id])
+  feederId   Int
+  NodalPrice NodalPrice[]
+}
+
+model Feeder {
+  id         Int      @id
+  networkNum Int
+  feederNum  Int
+  Market     Market[]
+}
