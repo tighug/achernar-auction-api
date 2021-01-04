@@ -1,7 +1,7 @@
 {
   "name": "Achernar Auction API",
   "build": {
-    "dockerfile": "Dockerfile",
+    "dockerfile": "../Dockerfile",
     "target": "development",
     "context": "..",
     "args": {
@@ -17,8 +17,14 @@
     "yzhang.markdown-all-in-one",
     "davidanson.vscode-markdownlint",
     "eg2.vscode-npm-script",
-    "christian-kohler.npm-intellisense"
+    "christian-kohler.npm-intellisense",
+    "dbaeumer.vscode-eslint",
+    "prisma.prisma",
+    "mikestead.dotenv",
+    "ms-azuretools.vscode-docker"
   ],
-  "forwardPorts": [8000]
-  // "containerUser": "node"
+  "forwardPorts": [9000],
+  "mounts": [
+    "source=achernar-auction-api-node_modules,target=${containerWorkspaceFolder}/node_modules,type=volume"
+  ]
 }
