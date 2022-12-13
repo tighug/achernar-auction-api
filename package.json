@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "@prisma/client": "^2.13.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "http-errors": "^1.8.0",
     "validator": "^13.5.2"
   }
